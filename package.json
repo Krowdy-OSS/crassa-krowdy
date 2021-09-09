@@ -1,0 +1,92 @@
+{
+  "name": "@crassa/next",
+  "version": "0.9.22",
+  "preferGlobal": true,
+  "bin": {
+    "crassa": "./index.js"
+  },
+  "main": "index.js",
+  "author": "Ghondar <abgv9221@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ghondar/crassa.git"
+  },
+  "homepage": "https://github.com/ghondar/crassa",
+  "keywords": [
+    "react",
+    "reactjs",
+    "express",
+    "redux",
+    "create-react-app",
+    "cli",
+    "universal",
+    "server-side-application"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@babel/core": "7.7.5",
+    "@babel/plugin-proposal-class-properties": "7.7.4",
+    "@babel/plugin-transform-flow-strip-types": "7.7.4",
+    "@babel/register": "7.7.4",
+    "@loadable/babel-plugin": "5.11.0",
+    "@loadable/component": "5.11.0",
+    "@loadable/server": "5.11.0",
+    "@loadable/webpack-plugin": "5.7.1",
+    "babel-cli": "6.26.0",
+    "babel-plugin-dynamic-import-node": "2.3.0",
+    "babel-plugin-transform-imports": "2.0.0",
+    "babel-plugin-transform-react-remove-prop-types": "0.4.24",
+    "body-parser": "1.19.0",
+    "commander": "4.0.1",
+    "compression": "1.7.4",
+    "cookie-parser": "1.4.4",
+    "cross-env": "6.0.3",
+    "customize-cra": "0.9.1",
+    "dotenv": "8.2.0",
+    "download-git-repo": "3.0.2",
+    "express": "4.17.1",
+    "http-proxy-middleware": "1.0.6",
+    "husky": "3.1.0",
+    "ignore-styles": "5.0.1",
+    "immer": "5.0.1",
+    "inquirer": "7.0.1",
+    "jsan": "3.1.13",
+    "lint-staged": "9.5.0",
+    "module-alias": "2.2.2",
+    "morgan": "1.9.1",
+    "ncp": "2.0.0",
+    "nodemon": "2.0.6",
+    "react-app-rewired": "2.1.5",
+    "react-helmet-async": "1.0.4",
+    "react-router-sitemap": "1.2.0",
+    "react-scripts": "3.4.3",
+    "redux-wait-for-action": "0.0.8",
+    "regenerator-runtime": "0.13.7",
+    "rimraf": "3.0.0"
+  },
+  "scripts": {
+    "publish": "git add . && git commit && npm publish",
+    "local-pack": "npm pack && rm -rf ../crassa-no-git && mkdir ../crassa-no-git && mv *.tgz ../crassa-no-git && cd ../crassa-no-git && tar -xvf *.tgz && cp -rf package/. . && rm -rf package/ && rm -rf *.tgz && npm i && sudo npm link",
+    "format": "eslint . --ext .js --fix",
+    "lint-staged": "lint-staged"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "{src,server}/**/*.js": [
+      "eslint . --ext .js --fix",
+      "git add"
+    ]
+  },
+  "_moduleAliases": {
+    "../config/paths": "./react-scripts-wrapper-paths",
+    "./paths": "./react-scripts-wrapper-paths"
+  },
+  "description": "A CLI tool to create React + Server Side with one command",
+  "bugs": {
+    "url": "https://github.com/ghondar/crassa/issues"
+  }
+}
